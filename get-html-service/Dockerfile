@@ -1,12 +1,14 @@
 FROM python:latest
 
-RUN curl -sL https://github.com/openfaas/faas/releases/download/0.9.14/fwatchdog > /usr/bin/fwatchdog \
-    && chmod +x /usr/bin/fwatchdog
+
+WORKDIR /app
+
+RUN pip install watchdog
 RUN pip install Flask
 RUN pip install requests
 
-ENV fprocess="python entrypoint.py"
-COPY entrypoint.py /
+#ENV fprocess="python3 Service2.py"
+COPY ./Service2.py .
 
-EXPOSE 8080
-CMD [ "fwatchdog" ]
+EXPOSE 5000
+CMD [ "python", "./Service2.py" ]

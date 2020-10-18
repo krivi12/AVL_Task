@@ -15,10 +15,10 @@ def getHtmlHash():
         return "Please specify url", 400
     html_page = requests.get(url).text
     payload = {"rawValue": html_page}
-    hashed_html_page = requests.post("http://localhost:5000/get-hash",
+    hashed_html_page = requests.post("http://hash-service:5000/get-hash",
                                      data=json.dumps(payload), headers={"content-type": "application/json"}).text
 
     return hashed_html_page
 
 
-app.run()
+app.run(host='0.0.0.0')
