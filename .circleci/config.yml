@@ -14,6 +14,6 @@ jobs:
       - run:
           name: run tests
           command: | 
-            cd hash-service
+            cd get-hash-service
             pytest
       
