@@ -12,6 +12,9 @@ jobs:
       - checkout
       # Step 2: create virtual env and install dependencies
       - run:
+          name: install pytest
+          command: pip install pytest
+      - run:
           name: run tests
           command: | 
             cd get-hash-service
