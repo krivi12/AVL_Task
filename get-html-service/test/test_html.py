@@ -1,7 +1,3 @@
-import requests
-import flask
-import sys
-
 #client = Service2.app.test_client()
 
 
