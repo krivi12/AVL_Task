@@ -1,10 +1,9 @@
 # Python CircleCI 2.0 configuration file
 version: 2
 jobs:
-  build:
+  tests:
     docker:
       - image: circleci/python:3.7
-
     working_directory: ~/repo
 
     steps:
@@ -15,8 +14,13 @@ jobs:
           name: install pytest
           command: pip install pytest
       - run:
-          name: run tests
+          name: run hash service tests
           command: | 
             cd get-hash-service
+            pytest
+      - run:
+          name: run html service tests
+          command: | 
+            cd get-html-service
             pytest
       
