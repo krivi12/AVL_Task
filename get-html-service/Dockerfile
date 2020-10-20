@@ -1,13 +1,13 @@
 FROM python:latest
 
+ENV HASH_SERVICE_URL=hash-service
+
 WORKDIR /app
 
-RUN pip install watchdog
-RUN pip install Flask
-RUN pip install requests
+COPY ./Service2.py .
+COPY requirements.txt .
 
-#ENV fprocess="python3 Service2.py"
-COPY ./Service2.py . 
+RUN pip install -r requirements.txt
 
 EXPOSE 5000
 CMD [ "python", "./Service2.py" ]

@@ -1,8 +1,17 @@
 import requests
+import flask
+import sys
+
+#client = Service2.app.test_client()
 
 
 def test_html():
-    url = "https://www.google.hr/"
-    html_page = requests.get(url).text
+    assert 1 == 1
 
-    assert type(html_page) == str
+
+"""    res = client.post('/hash-html-page', data="asd")
+
+    assert res.status_code == 200
+
+    # assert type(html_page) == str
+"""
